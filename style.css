@@ -1,0 +1,439 @@
+body, button {
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #dad6d6;
+}
+
+.container {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5em;
+  row-gap: 2em;
+}
+.container .btn-container {
+  display: flex;
+  flex-direction: column;
+}
+.container .btn-container .menu {
+  align-self: center;
+}
+
+.btn1 {
+  background-color: red;
+  width: 2em;
+  height: 2.1em;
+  position: relative;
+  transition-duration: 500ms;
+}
+.btn1 .icon-left {
+  background-color: #212121;
+  width: 1em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+  left: 0;
+}
+.btn1 .icon-left, .btn1 .icon-left::before, .btn1 .icon-left::after {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.btn1 .icon-left::before, .btn1 .icon-left::after {
+  background-color: #212121;
+  width: 1em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+  left: 0;
+}
+.btn1 .icon-left::before {
+  bottom: 10px;
+}
+.btn1 .icon-left::after {
+  top: 10px;
+}
+.btn1 .icon-right {
+  background-color: #212121;
+  width: 1em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+  right: 0;
+}
+.btn1 .icon-right, .btn1 .icon-right::before, .btn1 .icon-right::after {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.btn1 .icon-right::before, .btn1 .icon-right::after {
+  background-color: #212121;
+  width: 1em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+  right: 0;
+}
+.btn1 .icon-right::before {
+  bottom: 10px;
+}
+.btn1 .icon-right::after {
+  top: 10px;
+}
+.btn1.open .icon-left, .btn1.open .icon-right {
+  background-color: transparent;
+  transition: background-color 500ms;
+}
+.btn1.open .icon-left::before {
+  transform: rotateZ(45deg) translate(1px, 4px) scale(1.1);
+  width: 1.3em;
+  transition: width 1s, transform 350ms;
+}
+.btn1.open .icon-left::after {
+  transform: rotateZ(-45deg) translate(1px, -4px) scale(1.1);
+  width: 1.3em;
+  transition: width 1s, transform 350ms;
+}
+.btn1.open .icon-right::before {
+  transform: rotateZ(-45deg) translate(-1px, 4px) scale(1.1);
+  width: 1.3em;
+  transition: width 1s, transform 350ms;
+}
+.btn1.open .icon-right::after {
+  transform: rotateZ(45deg) translate(-1px, -4px) scale(1.1);
+  width: 1.3em;
+  transition: width 1s, transform 350ms;
+}
+.btn1:hover {
+  cursor: pointer;
+}
+
+.btn2 {
+  background-color: red;
+  width: 2em;
+  height: 1.8em;
+  position: relative;
+  transition-duration: 500ms;
+}
+.btn2 span {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+}
+.btn2 span, .btn2 span::before, .btn2 span::after {
+  border-radius: 3px;
+}
+.btn2 span::before, .btn2 span::after {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+}
+.btn2 span::before {
+  bottom: 10px;
+}
+.btn2 span::after {
+  top: 10px;
+}
+.btn2.open span {
+  background-color: transparent;
+  transition: background-color 250ms;
+}
+.btn2.open span::before {
+  transform: rotateZ(45deg) translate(7px, 7px) scale(1.1);
+}
+.btn2.open span::after {
+  transform: rotateZ(-45deg) translate(7px, -7px) scale(1.1);
+}
+.btn2:hover {
+  cursor: pointer;
+}
+
+.btn3 {
+  background-color: red;
+  width: 2em;
+  height: 1.8em;
+  position: relative;
+  transition-duration: 500ms;
+}
+.btn3 span {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+}
+.btn3 span, .btn3 span::before, .btn3 span::after {
+  border-radius: 3px;
+}
+.btn3 span::before, .btn3 span::after {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+}
+.btn3 span::before {
+  bottom: 10px;
+}
+.btn3 span::after {
+  top: 10px;
+}
+.btn3.open span {
+  background-color: transparent;
+  transition: background-color 250ms;
+}
+.btn3.open span::before {
+  transform: rotateZ(-45deg) scale(1.1) translate(-6px, 6px);
+}
+.btn3.open span::after {
+  transform: rotateZ(45deg) scale(1.1) translate(-7px, -6px);
+}
+.btn3:hover {
+  cursor: pointer;
+}
+
+.btn4 {
+  background-color: red;
+  width: 2em;
+  height: 1.8em;
+  position: relative;
+  transition-duration: 500ms;
+}
+.btn4 span {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+}
+.btn4 span, .btn4 span::before, .btn4 span::after {
+  border-radius: 3px;
+}
+.btn4 span::before, .btn4 span::after {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+}
+.btn4 span::before {
+  bottom: 10px;
+}
+.btn4 span::after {
+  top: 10px;
+}
+.btn4.open span::before {
+  transform: rotateZ(-45deg) translate(-5px, 1px);
+  width: 1.5em;
+}
+.btn4.open span::after {
+  transform: rotateZ(45deg) translate(-5px, -1px);
+  width: 1.5em;
+}
+.btn4:hover {
+  cursor: pointer;
+}
+
+.btn5 {
+  background-color: red;
+  width: 2em;
+  height: 1.8em;
+  position: relative;
+  transition-duration: 500ms;
+}
+.btn5 span {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+}
+.btn5 span, .btn5 span::before, .btn5 span::after {
+  border-radius: 3px;
+}
+.btn5 span::before, .btn5 span::after {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+}
+.btn5 span::before {
+  bottom: 10px;
+}
+.btn5 span::after {
+  top: 10px;
+}
+.btn5.open span::before {
+  transform: rotateZ(45deg) translate(9px, -4px);
+  width: 1.5em;
+}
+.btn5.open span::after {
+  transform: rotateZ(45deg) translate(-5px, -1px);
+  width: 1.5em;
+}
+.btn5:hover {
+  cursor: pointer;
+}
+
+.btn6 {
+  background-color: red;
+  width: 2em;
+  height: 1.8em;
+  position: relative;
+  transition-duration: 500ms;
+}
+.btn6 span {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+}
+.btn6 span, .btn6 span::before, .btn6 span::after {
+  border-radius: 3px;
+}
+.btn6 span::before, .btn6 span::after {
+  background-color: #212121;
+  width: 2em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+}
+.btn6 span::before {
+  bottom: 10px;
+}
+.btn6 span::after {
+  top: 10px;
+}
+.btn6.open span::before {
+  transform: rotateZ(45deg) translate(9px, -4px);
+  width: 1.5em;
+}
+.btn6.open span::after {
+  transform: rotateZ(-45deg) translate(9px, 4px);
+  width: 1.5em;
+}
+.btn6:hover {
+  cursor: pointer;
+}
+
+.btn7 {
+  background-color: red;
+  width: 2em;
+  height: 1.8em;
+  position: relative;
+  transition-duration: 500ms;
+}
+.btn7 .icon-left {
+  background-color: #212121;
+  width: 1em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+  left: 0;
+}
+.btn7 .icon-left, .btn7 .icon-left::before, .btn7 .icon-left::after {
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.btn7 .icon-left::before, .btn7 .icon-left::after {
+  background-color: #212121;
+  width: 1em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+  left: 0;
+}
+.btn7 .icon-left::before {
+  bottom: 10px;
+}
+.btn7 .icon-left::after {
+  top: 10px;
+}
+.btn7 .icon-right {
+  background-color: #212121;
+  width: 1em;
+  height: 0.3em;
+  position: absolute;
+  display: block;
+  transition-duration: 0.5s;
+  right: 0;
+}
+.btn7 .icon-right, .btn7 .icon-right::before, .btn7 .icon-right::after {
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}
+.btn7 .icon-right::before, .btn7 .icon-right::after {
+  background-color: #212121;
+  width: 1em;
+  height: 0.3em;
+  display: block;
+  position: absolute;
+  content: "";
+  transition-duration: 0.5s;
+  right: 0;
+}
+.btn7 .icon-right::before {
+  bottom: 10px;
+}
+.btn7 .icon-right::after {
+  top: 10px;
+}
+.btn7.open .icon-left::before {
+  transform: rotateZ(45deg) translate(1px, 4px) scale(1.1);
+  width: 1.3em;
+  transition: width 1s, transform 350ms;
+}
+.btn7.open .icon-left::after {
+  transform: rotateZ(-45deg) translate(1px, -4px) scale(1.1);
+  width: 1.3em;
+  transition: width 1s, transform 350ms;
+}
+.btn7.open .icon-right::before {
+  transform: rotateZ(-45deg) translate(-1px, 4px) scale(1.1);
+  width: 1.3em;
+  transition: width 1s, transform 350ms;
+}
+.btn7.open .icon-right::after {
+  transform: rotateZ(45deg) translate(-1px, -4px) scale(1.1);
+  width: 1.3em;
+  transition: width 1s, transform 350ms;
+}
+.btn7:hover {
+  cursor: pointer;
+}
+
+/*# sourceMappingURL=style.css.map */

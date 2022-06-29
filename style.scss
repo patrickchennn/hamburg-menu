@@ -1,0 +1,513 @@
+body,button{
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+body{
+  background-color: #dad6d6;
+}
+
+.container {
+  border: 1px solid black;
+  padding: 20px;
+  margin: 50px;
+
+  display: flex;
+  flex-wrap: wrap;
+  column-gap: 1.5em;
+  row-gap: 2em;
+  .btn-container{
+    display: flex;
+    flex-direction: column;
+
+    .menu{
+      align-self: center;
+    }
+  }
+}
+
+// copy from here ~
+
+// bar color
+$bar-col: #212121;
+
+// background color
+$bg-col: red;
+
+@mixin btn($menu-width,$menu-heigth){
+  background-color: $bg-col;
+
+  // box-model
+  width: $menu-width;
+  height: $menu-heigth;
+
+  // positioning
+  // position: absolute;
+  position: relative;
+
+  // animation
+  transition-duration: 500ms;
+}
+
+@mixin main-icon($icon-width,$icon-height) {
+  background-color: $bar-col;
+  width: $icon-width;
+  height: $icon-height;
+
+  position: absolute;
+  display: block;
+
+  transition-duration: 0.5s;
+}
+
+@mixin icon-before-and-after($icon-width,$icon-height){
+  // box-model
+  background-color: $bar-col;
+  width: $icon-width;
+  height: $icon-height;
+
+  display: block;
+
+  // positioning
+  position: absolute;
+  content: "";
+
+  // animation
+  transition-duration: 0.5s;
+}
+// ~until here
+
+
+// the hamburger menu:
+.btn1{
+  //constructing the humberger menu
+  $icon-height: 0.3em;
+  $icon-width: 1em;
+
+  $move-up-or-down: 10px;
+
+  @include btn($icon-width*2,$icon-height*7);
+
+  .icon-left{
+    @include main-icon($icon-width, $icon-height);
+    left: 0;
+
+    &,&::before,&::after{
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    &::before,&::after{
+      @include icon-before-and-after($icon-width, $icon-height);
+      left: 0;
+    }
+    
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+
+  }
+
+  .icon-right{
+    @include main-icon($icon-width, $icon-height);
+    right: 0;
+
+    &,&::before,&::after{
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &::before,&::after{
+      @include icon-before-and-after($icon-width, $icon-height);
+      right: 0;
+
+    }
+    
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+  }
+  
+  // animation
+  &.open{
+    .icon-left,.icon-right{
+      background-color: transparent;
+      transition: background-color 500ms;
+    }
+
+    .icon-left{
+      &::before{
+        transform: rotateZ(45deg) translate(1px,4px) scale(1.1);
+        width: $icon-height+1;
+        transition: width 1s, transform 350ms;
+      }
+
+      &::after{
+        transform: rotateZ(-45deg) translate(1px,-4px) scale(1.1);
+        width: $icon-height+1;
+        transition: width 1s, transform 350ms;
+      }
+    }
+
+    .icon-right{
+      &::before{
+        transform: rotateZ(-45deg) translate(-1px,4px) scale(1.1);
+        width: $icon-height+1;
+        transition: width 1s, transform 350ms;
+      }
+
+      &::after{
+        transform: rotateZ(45deg)  translate(-1px,-4px) scale(1.1);
+        width: $icon-height+1;
+        transition: width 1s, transform 350ms;
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.btn2{
+    //constructing the humberger menu
+    $icon-height: 0.3em;
+    $icon-width: 2em;
+    $move-up-or-down: 10px;
+
+  @include btn($icon-width,$icon-height*6);
+  span{
+    &,&::before,&::after{
+      border-radius: 3px;
+    }
+
+    @include main-icon($icon-width,$icon-height);
+    &::before,&::after{
+      @include icon-before-and-after($icon-width,$icon-height);
+    }
+
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+  }
+
+  &.open{
+    span{
+      background-color: transparent;
+      transition: background-color 250ms;
+      &::before{
+        // transform-origin: top left;
+        transform: rotateZ(45deg) translate(7px,7px) scale(1.1);
+      }
+      &::after{
+        transform: rotateZ(-45deg) translate(7px,-7px) scale(1.1);
+      }
+    }
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.btn3{
+  //constructing the humberger menu
+  $icon-height: 0.3em;
+  $icon-width: 2em;
+  $move-up-or-down: 10px;
+  @include btn($icon-width, $icon-height*6);
+
+  span{
+    &,&::before,&::after{
+      border-radius: 3px;
+    }
+
+    @include main-icon($icon-width,$icon-height);
+    &::before,&::after{
+      @include icon-before-and-after($icon-width,$icon-height);
+    }
+
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+  }
+
+  &.open{
+    span{
+      background-color: transparent;
+      transition: background-color 250ms;
+      &::before{
+        // transform-origin: top left;
+        transform: rotateZ(-45deg) scale(1.1) translate(-6px, 6px);
+      }
+
+      &::after{
+        transform: rotateZ(45deg) scale(1.1) translate(-7px, -6px);
+      }
+    }
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.btn4{
+  //constructing the humberger menu
+  $icon-height: 0.3em;
+  $icon-width: 2em;
+  $move-up-or-down: 10px;
+  @include btn($icon-width, $icon-height*6);
+
+  span{
+    &,&::before,&::after{
+      border-radius: 3px;
+    }
+
+    @include main-icon($icon-width,$icon-height);
+    &::before,&::after{
+      @include icon-before-and-after($icon-width,$icon-height);
+    }
+
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+  }
+
+  &.open{
+    span{
+      &,&::before,&::after{
+      }
+
+      &::before{
+        transform: rotateZ(-45deg) translate(-5px,1px);
+        width: $icon-width - 0.5;
+      }
+
+      &::after{
+        transform: rotateZ(45deg) translate(-5px,-1px);
+        width: $icon-width - 0.5;
+      }
+    }
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.btn5{
+  //constructing the humberger menu
+  $icon-height: 0.3em;
+  $icon-width: 2em;
+  $move-up-or-down: 10px;
+  @include btn($icon-width, $icon-height*6);
+
+  span{
+    &,&::before,&::after{
+      border-radius: 3px;
+    }
+
+    @include main-icon($icon-width,$icon-height);
+    &::before,&::after{
+      @include icon-before-and-after($icon-width,$icon-height);
+    }
+
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+  }
+
+  &.open{
+    span{
+      &,&::before,&::after{
+      }
+
+      &::before{
+        transform: rotateZ(45deg) translate(9px, -4px);
+        width: $icon-width - 0.5;
+      }
+
+      &::after{
+        transform: rotateZ(45deg) translate(-5px,-1px);
+        width: $icon-width - 0.5;
+      }
+    }
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+.btn6{
+  //constructing the humberger menu
+  $icon-height: 0.3em;
+  $icon-width: 2em;
+  $move-up-or-down: 10px;
+  @include btn($icon-width, $icon-height*6);
+
+  span{
+    &,&::before,&::after{
+      border-radius: 3px;
+    }
+
+    @include main-icon($icon-width,$icon-height);
+    &::before,&::after{
+      @include icon-before-and-after($icon-width,$icon-height);
+    }
+
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+  }
+
+  &.open{
+    span{
+      &,&::before,&::after{
+      }
+
+      &::before{
+        transform: rotateZ(45deg) translate(9px, -4px);
+        width: $icon-width - 0.5;
+      }
+
+      &::after{
+        transform: rotateZ(-45deg) translate(9px,4px);
+        width: $icon-width - 0.5;
+      }
+    }
+  }
+
+  &:hover{
+    cursor: pointer;
+  }
+}
+
+
+.btn7{
+  //constructing the humberger menu
+  $icon-height: 0.3em;
+  $icon-width: 1em;
+  $move-up-or-down: 10px;
+
+  @include btn($icon-width*2,$icon-height*6);
+
+  .icon-left{
+    @include main-icon($icon-width, $icon-height);
+    left: 0;
+
+    &,&::before,&::after{
+      border-top-left-radius: 3px;
+      border-bottom-left-radius: 3px;
+    }
+
+    &::before,&::after{
+      @include icon-before-and-after($icon-width, $icon-height);
+      left: 0;
+    }
+    
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+  }
+
+  .icon-right{
+    @include main-icon($icon-width, $icon-height);
+    right: 0;
+
+    &,&::before,&::after{
+      border-top-right-radius: 3px;
+      border-bottom-right-radius: 3px;
+    }
+
+    &::before,&::after{
+      @include icon-before-and-after($icon-width, $icon-height);
+      right: 0;
+
+    }
+    
+    &::before{
+      bottom: $move-up-or-down;
+    }
+
+    &::after{
+      top: $move-up-or-down;
+    }
+  }
+  
+  // animation
+  &.open{
+    .icon-left,.icon-right{
+      // background-color: transparent;
+      // transition: background-color 500ms;
+    }
+
+    .icon-left{
+      &::before{
+        transform: rotateZ(45deg) translate(1px,4px) scale(1.1);
+        width: $icon-height+1;
+        transition: width 1s, transform 350ms;
+      }
+
+      &::after{
+        transform: rotateZ(-45deg) translate(1px,-4px) scale(1.1);
+        width: $icon-height+1;
+        transition: width 1s, transform 350ms;
+      }
+    }
+
+    .icon-right{
+      &::before{
+        transform: rotateZ(-45deg) translate(-1px,4px) scale(1.1);
+        width: $icon-height+1;
+        transition: width 1s, transform 350ms;
+      }
+
+      &::after{
+        transform: rotateZ(45deg)  translate(-1px,-4px) scale(1.1);
+        width: $icon-height+1;
+        transition: width 1s, transform 350ms;
+      }
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+}
+
